@@ -9,24 +9,24 @@
 
 function ting_search_extendform_form_ting_admin_register_settings_alter(&$form, &$form_state, $form_id) {
   $form['ting_search_extendform_creator_index'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Author'),
-    '#description'   => t('Field that contains authername, for instance dc.creator'),
-    '#default_value' => variable_get('ting_search_extendform_creator_index', 'dc.creator')
+    '#type' => 'textfield',
+    '#title' => t('Author'),
+    '#description' => t('Field that contains authername, for instance dc.creator'),
+    '#default_value' => variable_get('ting_search_extendform_creator_index', 'dc.creator'),
   );
 
   $form['ting_search_extendform_title_index'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Title'),
-    '#description'   => t('Field that contains title, for instance dc.title'),
-    '#default_value' => variable_get('ting_search_extendform_title_index', 'dc.title')
+    '#type' => 'textfield',
+    '#title' => t('Title'),
+    '#description' => t('Field that contains title, for instance dc.title'),
+    '#default_value' => variable_get('ting_search_extendform_title_index', 'dc.title'),
   );
 
   $form['ting_search_extendform_subject_index'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Subject'),
-    '#description'   => t('Field that contains subject, for instance dc.subject'),
-    '#default_value' => variable_get('ting_search_extendform_subject_index', 'dc.subject')
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#description' => t('Field that contains subject, for instance dc.subject'),
+    '#default_value' => variable_get('ting_search_extendform_subject_index', 'dc.subject'),
   );
 
   $form['#validate'][] = 'ting_search_extendform_admin_register_settings_validate';
@@ -106,18 +106,18 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
   }
 
   $form['search_provider'] = array(
-    '#type'          => 'radios',
-    '#options'       => $options,
+    '#type' => 'radios',
+    '#options' => $options,
     '#default_value' => $default,
   );
 
   $form['advanced_search'] = array(
-    '#type'        => 'fieldset',
-    '#title'       => t('Advanced'),
+    '#type' => 'fieldset',
+    '#title' => t('Advanced'),
     '#collapsible' => TRUE,
-    '#collapsed'   => TRUE,
-    '#attributes'  => array('class' => array('extendsearch-advanced')),
-    '#prefix'      => '<br />'
+    '#collapsed' => TRUE,
+    '#attributes' => array('class' => array('extendsearch-advanced')),
+    '#prefix' => '<br />',
   );
 
   $form['advanced_search']['fields'] = array(
@@ -127,11 +127,11 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
 
   $defvalue = isset($_GET['creator']) ? $_GET['creator'] : '';
   $form['advanced_search']['fields']['ting_search_extendform_creator_field'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Author'),
+    '#type' => 'textfield',
+    '#title' => t('Author'),
     '#default_value' => $defvalue,
-    '#size'          => 50,
-    '#maxlength'     => 255,
+    '#size' => 50,
+    '#maxlength' => 255,
   );
 
   if ($defvalue != '') {
@@ -140,12 +140,12 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
 
   $defvalue = isset($_GET['title']) ? $_GET['title'] : '';
   $form['advanced_search']['fields']['ting_search_extendform_title_field'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Title'),
+    '#type' => 'textfield',
+    '#title' => t('Title'),
     '#default_value' => $defvalue,
-    '#prefix'        => '<br />',
-    '#size'          => 50,
-    '#maxlength'     => 255,
+    '#prefix' => '<br />',
+    '#size' => 50,
+    '#maxlength' => 255,
   );
 
   if ($defvalue != '') {
@@ -154,12 +154,12 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
 
   $defvalue = isset($_GET['subject']) ? $_GET['subject'] : '';
   $form['advanced_search']['fields']['ting_search_extendform_subject_field'] = array(
-    '#type'          => 'textfield',
-    '#title'         => t('Subjects'),
+    '#type' => 'textfield',
+    '#title' => t('Subjects'),
     '#default_value' => $defvalue,
-    '#prefix'        => '<br />',
-    '#size'          => 50,
-    '#maxlength'     => 255,
+    '#prefix' => '<br />',
+    '#size' => 50,
+    '#maxlength' => 255,
   );
 
   if ($defvalue != '') {

@@ -77,7 +77,6 @@ class TingSearchExtendFormTestCase extends DrupalUnitTestCase {
     $this->assertEqual( $form[self::SUBMIT_ATTR], array('ting_search_extendform_submit'));
   }
 
-  function testAlterFormSearchState() {
-  }
+  function testAlterFormSearchState() { }
 
 }
