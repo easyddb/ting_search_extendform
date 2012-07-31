@@ -10,21 +10,21 @@
 function ting_search_extendform_form_ting_admin_register_settings_alter(&$form, &$form_state, $form_id) {
   $form['ting_search_extendform_creator_index'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Forfatter'),
+    '#title'         => t('Author'),
     '#description'   => t('Field that contains authername, for instance dc.creator'),
     '#default_value' => variable_get('ting_search_extendform_creator_index', 'dc.creator')
   );
 
   $form['ting_search_extendform_title_index'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Titel'),
+    '#title'         => t('Title'),
     '#description'   => t('Field that contains title, for instance dc.title'),
     '#default_value' => variable_get('ting_search_extendform_title_index', 'dc.title')
   );
 
   $form['ting_search_extendform_subject_index'] = array(
     '#type'          => 'textfield',
-    '#title'         => t('Emneord'),
+    '#title'         => t('Subject'),
     '#description'   => t('Field that contains subject, for instance dc.subject'),
     '#default_value' => variable_get('ting_search_extendform_subject_index', 'dc.subject')
   );
@@ -92,7 +92,7 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
   $active_providers = variable_get('search_active_modules', array());
   foreach ($search_providers as $provider_name => $provider_info) {
     if (!empty($active_providers[$provider_name])) {
-      $options[$provider_info['path']] = t($provider_info['title']);
+      $options[$provider_info['path']] = t('@title', array('@title' => $provider_info['title']));
       if ($provider_name == $default) {
         $default = $provider_info['path'];
       }
@@ -117,7 +117,7 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     '#collapsible' => TRUE,
     '#collapsed'   => TRUE,
     '#attributes'  => array('class' => array('extendsearch-advanced')),
-    '#prefix'      => '<br/>'
+    '#prefix'      => '<br />'
   );
 
   $form['advanced_search']['fields'] = array(
@@ -143,7 +143,7 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     '#type'          => 'textfield',
     '#title'         => t('Title'),
     '#default_value' => $defvalue,
-    '#prefix'        => '<br/>',
+    '#prefix'        => '<br />',
     '#size'          => 50,
     '#maxlength'     => 255,
   );
@@ -157,7 +157,7 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     '#type'          => 'textfield',
     '#title'         => t('Subjects'),
     '#default_value' => $defvalue,
-    '#prefix'        => '<br/>',
+    '#prefix'        => '<br />',
     '#size'          => 50,
     '#maxlength'     => 255,
   );
