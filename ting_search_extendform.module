@@ -99,6 +99,14 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     }
   }
 
+  // Change the order of options
+  if (!empty($options['ting'])) {
+    $temp = array();
+    $temp['ting'] = $options['ting'];
+    unset($options['ting']);
+    $options = $temp + $options;
+  }
+
   // Check if we are on a search page
   $search_path = arg(1);
   if (arg(0) == 'search' && !empty($search_path)) {
