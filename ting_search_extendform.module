@@ -99,6 +99,11 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     }
   }
 
+  // Change value "Content" to "Website"
+  if (!empty($options['node'])) {
+    $options['node'] = t('Website');
+  }
+
   // Change the order of options
   if (!empty($options['ting'])) {
     $temp = array();
