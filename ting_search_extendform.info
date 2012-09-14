@@ -1,7 +1,7 @@
 package = Ding!
 name = Ting Search Extend Form
 description = Extending the search form with librarian fields.
-version = 7.x-1.4.3
+version = 7.x-1.5.4
 core = 7.x
 dependencies[] = ting_search
 files[] = ting_search_extendform.module
