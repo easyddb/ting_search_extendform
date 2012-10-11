@@ -78,7 +78,6 @@ function ting_search_extendform_form_search_form_alter(&$form, &$form_state, $fo
  */
 function ting_search_extendform_form_search_block_form_alter(&$form, &$form_state, $form_id) {
   $search_path = arg(1);
-  $default_value = '';
   if (arg(0) == 'search' && !empty($search_path)) {
     $default_value = trim(arg(2));
   }
@@ -104,16 +103,19 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
     $options['node'] = t('Website');
   }
 
-  // Change the order of options
-  if (!empty($options['ting'])) {
-    $temp = array();
-    $temp['ting'] = $options['ting'];
-    unset($options['ting']);
-    $options = $temp + $options;
+  // Change the order of options.
+  $search_providers_order = array('ting', 'node', 'meta');
+  // Add any other providers not listed to the end.
+  $search_providers_order = array_merge($search_providers_order, array_keys($options));
+  $new_order = array();
+  foreach ($search_providers_order as $provider) {
+    if (isset($options[$provider])) {
+      $new_order[$provider] = $options[$provider];
+    }
   }
+  $options = $new_order;
 
   // Check if we are on a search page
-  $search_path = arg(1);
   if (arg(0) == 'search' && !empty($search_path)) {
     $default = $search_path;
   }
