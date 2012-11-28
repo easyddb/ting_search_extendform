@@ -81,6 +81,9 @@ function ting_search_extendform_form_search_block_form_alter(&$form, &$form_stat
   if (arg(0) == 'search' && !empty($search_path)) {
     $default_value = trim(arg(2));
   }
+  else {
+    $default_value = '';
+  }
   $default_value = isset($_GET['text']) ? $_GET['text'] : $default_value;
   $form['search_block_form']['#default_value'] = $default_value;
 
