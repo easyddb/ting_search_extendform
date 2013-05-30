@@ -204,7 +204,6 @@ function ting_search_extendform_submit($form, &$form_state) {
   $form_id = $form['form_id']['#value'];
   $terms = $form_state['values'][$form_id];
   $fields = array();
-  $args = array('text' => $form_state['values']['search_block_form']);
 
   $s = $form_state['values']['ting_search_extendform_creator_field'];
   if ( $s != "" ) {
@@ -245,12 +244,7 @@ function ting_search_extendform_submit($form, &$form_state) {
   $path = $form_state['values']['search_provider'];
   if (!empty($path)) {
     $url = 'search/' . $path . '/' . trim($q);
-    $form_state['redirect'] = array(
-      $url,
-      array(
-        'query' => $args,
-      ),
-    );
+    $form_state['redirect'] = array($url);
   }
   else {
     form_set_error(NULL, t('Search is currently disabled.'), 'error');
