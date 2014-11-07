@@ -1,4 +1,4 @@
-package = Ding!
+package = easyDDB
 name = Ting Search Extend Form
 description = Extending the search form with librarian fields.
 version = 7.x-1.18
